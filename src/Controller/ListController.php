@@ -2,11 +2,12 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use FOS\RestBundle\Controller\AbstractFOSRestController;
+use FOS\RestBundle\Controller\Annotations as Rest;;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ListController extends AbstractController
+class ListController extends AbstractFOSRestController
 {
     /**
      * @Route("/list", name="list")
@@ -18,4 +19,14 @@ class ListController extends AbstractController
             'path' => 'src/Controller/ListController.php',
         ]);
     }
+
+    /**
+     * @Rest\Post("/update", name="app_update")
+     */
+    public function update()
+    {
+        return ['message' => 'update',];
+    }
+
+
 }
